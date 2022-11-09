@@ -37,7 +37,7 @@ export const RegisterPage = () => {
                   <TextField
                     label="Nombres completos"
                     type='text'
-                    placeholder='Ingrese los nombres completos'
+                    placeholder='Ingrese nombres completos'
                     fullWidth
                     name='displayName'
                     value={displayName}
