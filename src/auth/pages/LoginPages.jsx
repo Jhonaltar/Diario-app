@@ -7,7 +7,7 @@ import {Link as RouterLink} from 'react-router-dom'
 import { AuthLayout } from '../layout/AuthLayout'
 import { useForm } from '../../hooks'
 import { useDispatch, useSelector } from 'react-redux'
-import { checkingAuthentication, startGoogleSingIn } from '../../store/auth'
+import { startGoogleSingIn, startLoginWithEmailPassword } from '../../store/auth'
 import { useMemo } from 'react'
 
 
@@ -17,16 +17,16 @@ export const LoginPages = () => {
 
   const dispatch = useDispatch();
   const { email,password, onInputChange } = useForm({
-    email:'fermando@gmail.com',
-    password: '123456'
+    email:'admin@gmail.com',
+    password: 'admin123'
   });
 
+  console.log(email);
   const isAuthenticating = useMemo(()=> status === 'checking',[status])
 
   const onSubmit=(event)=>{
     event.preventDefault();
-    console.log({email, password});
-    dispatch(checkingAuthentication()); 
+    dispatch(startLoginWithEmailPassword({email,password}))
   }
 
   const onGoogleSingIn=()=>{
