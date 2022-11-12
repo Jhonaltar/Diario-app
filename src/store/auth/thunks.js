@@ -49,7 +49,6 @@ export const startLoginWithEmailPassword = ({ email, password }) => {
       email,
       password,
     });
-    console.log(result);
     if (!result.ok) return dispatch(logout(result));
     dispatch(login(result));
   };
