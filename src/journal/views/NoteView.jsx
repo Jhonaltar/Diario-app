@@ -15,7 +15,7 @@ export const NoteView = () => {
   const dispatch=useDispatch()
   const {active:note, messageSaved,isSaving}= useSelector(state=>state.journal)
 
-   const { body, title, date,imageUrls,onInputChange,formState } =useForm(note);
+   const { body, title, date,onInputChange,formState } =useForm(note);
 
    const dateString = useMemo(()=>{
     const newDate = new Date(date);
@@ -109,9 +109,10 @@ export const NoteView = () => {
         </Grid>
 
         <Grid container sx={{mt:2, mb:2}}>
-            <ImagenGallery 
+          {note.imageUrls && <ImagenGallery 
             images={note.imageUrls}
-            />
+            />}
+            
         </Grid>
     </Grid>
     
